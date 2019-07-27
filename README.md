@@ -10,16 +10,16 @@ fgr will have a few different components:
 
 Pie-in-the-sky stuff:
 1. a built-in server for charting that can pipe in data from the configuration file
-	1. Figure out some protocol for real-time data streaming
-	2. Expose server via docker
+  1. Figure out some protocol for real-time data streaming
+  2. Expose server via docker
 2. code export
-	1. Python
-		1. raw code
-		2. jupyter notebook
-	2. Javascript
-		1. raw d3 script
-		2. jupyter notebook
-		3. html/css/html
+  1. Python
+    1. raw code
+    2. jupyter notebook
+  2. Javascript
+    1. raw d3 script
+    2. jupyter notebook
+    3. html/css/html
 
 ## Installation
 
@@ -53,15 +53,68 @@ Considering that we are using Docker, it might be prudent to include build instr
 
 This is the proposed method of charting from a YML configuration
 
-1. 
+```
+df = pd.read_csv('../clean_train.csv')
+
+bar_chart_data = df[["Overall Qual","Overall Cond", "SalePrice","Year Built","Year Remod/Add", "Yr Sold"]]
+
+temp = bar_chart_data.groupby(['Year Built', 'Overall Qual'])[['SalePrice']].sum()
+
+temp.reset_index(inplace=True)
+
+stacked_bar_chart = temp.pivot(index='Year Built', 
+           columns='Overall Qual', 
+           values='SalePrice').plot(kind='bar', 
+                                    figsize=(20,10),
+                                    stacked=True)
+
+fig = stacked_bar_chart.get_figure()
+fig.savefig("./temp.png") 
+
+
+````
+
+1. Stacked bar example
 ```yaml
-type: bar
-x_axis: Time 
-y_axis: Money
+# stacked_bar_chart.yml
+kind: bar
+group_by:
+  columns:
+    - Overall Qual
+    - Year Built
+  sum: SalePrice
+pivot:
+  index: Year Built
+  columns: SalePrice
 stacked: true
+output: temp.png
 
 ```
 
 ``` bash
-  $ fgr -f <config-file>
+  $ fgr -f stacked_bar_chart.yml
+```
+
+2. Multiple stacked bar charts example
+```yaml
+# multiple_stacked_bar_charts.yml
+multi: true  
+kind: bar
+group_by:
+  columns:
+    : 
+      - Overall Qual
+
+    - Year Built
+  sum: SalePrice
+pivot:
+  index: Year Built
+  columns: SalePrice
+stacked: true
+output: temp.png
+
+```
+
+``` bash
+  $ fgr -f multiple_stacked_bar_charts.yml
 ```
