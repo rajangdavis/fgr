@@ -77,6 +77,7 @@ fig.savefig("./temp.png")
 1. Stacked bar example
 ```yaml
 # stacked_bar_chart.yml
+
 kind: bar
 group_by:
   columns:
@@ -98,20 +99,26 @@ output: temp.png
 2. Multiple stacked bar charts example
 ```yaml
 # multiple_stacked_bar_charts.yml
-multi: true  
+
 kind: bar
 group_by:
   columns:
-    : 
+    overall: 
       - Overall Qual
-
-    - Year Built
+      - Overall Cond
+    year_data:
+      - Year Built
+      - Year Remod/Add
+      - Yr Sold
   sum: SalePrice
 pivot:
-  index: Year Built
+  index:
+    - Year Built
+    - Year Remod/Add
+    - Yr Sold
   columns: SalePrice
 stacked: true
-output: temp.png
+
 
 ```
 
