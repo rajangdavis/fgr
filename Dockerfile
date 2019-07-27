@@ -1,5 +1,5 @@
 # Figure out base image...
-# FROM python:3
+FROM alpine
 
 # install git
 RUN apt-get update && \
@@ -21,4 +21,5 @@ RUN apt-get update && \
 # I will want to create a CLI project
 # grab the code from that from local repo
 
-# maybe set up a test directory -> TDD
+
+# maybe set up a test directory -> TDD TBD

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="/css/reveal.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/white.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<% if params['print']=="true"%>
+	<style type="text/css">
+	    section svg, section h4{
+	    	margin-top: -200px !important;
+	    }
+	</style>
+	<% end %>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+			<h1 id="title">The <em id="small">(Conditional)</em> Cost of Quality</h1>
+			<br><br><br>
+			<h2 class="spaced">A review of Ames, Iowa House Pricing Data 2010</h3>
+			<br>
+			<h3>by Rajan Davis</h1>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="findings">
+					Newer sells more often
+					<br>
+					(but not always for more)</h1>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Year Built</h4>
+					<br>
+					<svg id="bar-chart-1" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Average Sales Price by Year Built</h4>
+					<br>
+					<svg id="bar-chart-2" width="960" height="500"></svg>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="findings">
+					Modifications help raise prices
+					<br>
+					(especially in 1950)</h1>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Year Modded/Added</h4>
+					<br>
+					<svg id="bar-chart-3" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Average Sales Price by Year Modded/Added</h4>
+					<br>
+					<svg id="bar-chart-4" width="960" height="500"></svg>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="findings">
+					House sales are slow
+					<br>
+					(but the price is 1ocked in)</h1>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Year Sold</h4>
+					<br>
+					<svg id="bar-chart-5" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Average Sales Price by Year Sold</h4>
+					<br>
+					<svg id="bar-chart-6" width="960" height="500"></svg>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="findings">
+					Newer is better
+					<br>
+					(that's why it's "quality")</h1>
+				</section>
+				<section>
+					<h4>Distribution of Overall Quality by Year Built</h4>
+					<br>
+					<svg id="bar-chart-7" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Overall Quality and Year Built</h4>
+					<br>
+					<svg id="bar-chart-8" width="960" height="500"></svg>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="findings">
+					Mods make sales
+					<br>
+					(especially those in 1950)</h1>
+				</section>
+				<section>
+					<h4>Distribution of Overall Quality by Year Modded/Added</h4>
+					<br>
+					<svg id="bar-chart-9" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Overall Quality and Year Modded/Added</h4>
+					<br>
+					<svg id="bar-chart-10" width="960" height="500"></svg>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h1 class="findings">
+					The qualities of sold houses are equally distributed
+					<br>
+					(but sales are on the decline)</h1>
+				</section>
+				<section>
+					<h4>Distribution of Overall Quality by Year Sold</h4>
+					<br>
+					<svg id="bar-chart-11" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Overall Quality and Year Sold</h4>
+					<br>
+					<svg id="bar-chart-12" width="960" height="500"></svg>
+				</section>
+			</section>
+
+
+			<section>
+				<section>
+					<h1 class="findings">
+					The condition of the houses sold are not that great
+					<br>
+					(but they still sell)</h1>
+				</section>
+				<section>
+					<h4>Distribution of Overall Condition by Year Built</h4>
+					<br>
+					<svg id="bar-chart-13" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Overall Condition and Year Built</h4>
+					<br>
+					<svg id="bar-chart-14" width="960" height="500"></svg>
+				</section>
+			</section>
+			<!-- <section>
+				<section>
+					<h1 class="findings">Finding 8:</h1>
+				</section>
+				<section>
+					<h4>Distribution of Overall Condition by Year Modded/Added</h4>
+					<br>
+					<svg id="bar-chart-15" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Overall Condition and Year Modded/Added</h4>
+					<br>
+					<svg id="bar-chart-16" width="960" height="500"></svg>
+				</section>
+			</section> -->
+<!-- 
+			<section>
+				<section>
+					<h1 class="findings">Finding 9:</h1>
+				</section>
+				<section>
+					<h4>Distribution of Overall Condition by Year Sold</h4>
+					<br>
+					<svg id="bar-chart-17" width="960" height="500"></svg>
+				</section>
+				<section>
+					<h4>Sum of Sales Price by Overall Condition and Year Sold</h4>
+					<br>
+					<svg id="bar-chart-18" width="960" height="500"></svg>
+				</section>
+			</section> -->
+			<section>
+			<h1 class="questions">Questions?</h1>
+			</section>
+		</div>
+	</div>
+</body>
+<script src="/js/reveal.min.js"></script>
+<script>
+	Reveal.initialize();
+	const barChartData = <%= @chart_data %>;
+</script>
+<script src="/js/d3.v4.min.js"></script>
+<script src="/js/data-structures.js"></script>
+<script src="/js/data-structures2.js"></script>
+<script src="/js/data-viz.js"></script>
+<script src="/js/data-viz2.js"></script>
