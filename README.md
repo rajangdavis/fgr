@@ -5,7 +5,7 @@
 
 fgr a few different components:
 1. A CLI to run everything
-2. a configuration file to feed info for charting or command line args - either JSON or YAML
+2. a configuration file to feed info for charting or command line args - starting with YAML, JSON in the future
 3. exports charts using matplotlib or D3
 4. a built-in server for charting that can pipe in data from the configuration file
 
@@ -41,3 +41,5 @@ docker run --rm -ti fgr "$@"
 ``` bash
   $ fgr -f <config-file>
 ```
+
+## YML configuration
