@@ -3,7 +3,11 @@
 **fgr** is an idea for utilizing existing open-source charting libraries to create a tool for
 generating and displaying charts based on configuration files in a secure context.
 
-## What it will need:
+Another idea that I want to play around with is the idea of code and data being interchangeable. The aim
+is to build a flexible tool that can be extended for a variety of use cases without getting in 
+the way.
+
+## What it will be:
 
 1. A CLI to run everything
 2. A configuration file to feed info for charting or command line args - starting with YAML then command line args, JSON (from file and/or streaming) in the future
@@ -21,6 +25,7 @@ generating and displaying charts based on configuration files in a secure contex
         1. raw d3 script
         2. jupyter notebook
         3. html/css/js
+4. Config export?
 
 [Proposal for API can be found here](./jupyter_proofs/fgr%20v0.0.1.ipynb).
 
