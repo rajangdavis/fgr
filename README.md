@@ -25,7 +25,7 @@ Pie-in-the-sky stuff:
         2. jupyter notebook
         3. html/css/html
 
-## Installation
+## Installation (this is a proposal, not 100% set in stone)
 
 1. Clone from github
 ``` bash
@@ -48,131 +48,11 @@ Pie-in-the-sky stuff:
 docker run --rm -ti --volume "$PWD":/shared/ fgr "$@" -p 5801:3000
 ```
 
-gets mapped to:
-
-``` bash
-  $ fgr -f config.yml
-```
-
 Considering that we are using Docker, it might be prudent to include build instructions for images.
 
 ## Basic API and YML configuration
 
-This is the proposed method of charting from a YML configuration
-
-1. Stacked bar example
-```yaml
-# stacked_bar_chart.yml
-
-kind: bar
-group_by:
-  columns:
-    - Overall Qual
-    - Year Built
-  sum: SalePrice
-pivot:
-  index: Year Built
-  columns: SalePrice
-stacked: true
-
-```
-
-``` bash
-  $ fgr -f stacked_bar_chart.yml
-```
-
-This should output the following python code:
-
-```python
-df = pd.read_csv('../clean_train.csv')
-
-bar_chart_data = df[["Overall Qual","Overall Cond", "SalePrice","Year Built","Year Remod/Add", "Yr Sold"]]
-
-temp = bar_chart_data.groupby(['Year Built', 'Overall Qual'])[['SalePrice']].sum()
-
-temp.reset_index(inplace=True)
-
-stacked_bar_chart = temp.pivot(index='Year Built', 
-           columns='Overall Qual', 
-           values='SalePrice').plot(kind='bar', 
-                                    figsize=(20,10),
-                                    stacked=True)
-
-fig = stacked_bar_chart.get_figure()
-fig.savefig("./temp.png") 
-
-```
-
-This should output the following js code:
-
-```node
-// write JS code here
-
-```
-
-2. Multiple stacked bar charts example
-```yaml
-# multiple_stacked_bar_charts.yml
-
-kind: bar
-group_by:
-  columns:
-    overall: 
-      - Overall Qual
-      - Overall Cond
-    year_data:
-      - Year Built
-      - Year Remod/Add
-      - Yr Sold
-  sum: SalePrice
-pivot:
-  index:
-    - Year Built
-    - Year Remod/Add
-    - Yr Sold
-  columns: SalePrice
-stacked: true
-
-
-```
-
-``` bash
-  $ fgr -f multiple_stacked_bar_charts.yml
-```
-
-This should output the following python code:
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-
-# TODO - update this script
-
-df = pd.read_csv('../clean_train.csv')
-
-bar_chart_data = df[["Overall Qual","Overall Cond", "SalePrice","Year Built","Year Remod/Add", "Yr Sold"]]
-
-temp = bar_chart_data.groupby(['Year Built', 'Overall Qual'])[['SalePrice']].sum()
-
-temp.reset_index(inplace=True)
-
-stacked_bar_chart = temp.pivot(index='Year Built', 
-           columns='Overall Qual', 
-           values='SalePrice').plot(kind='bar', 
-                                    figsize=(20,10),
-                                    stacked=True)
-
-fig = stacked_bar_chart.get_figure()
-fig.savefig("./temp.png") 
-
-```
-
-This should output the following js code:
-
-```node
-// write JS code here
-
-```
+[Proposal for API can be found here](./jupyter_proofs/fgr%20v0.0.1.ipynb).
 
 ## Running a server
 
