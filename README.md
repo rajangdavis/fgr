@@ -25,37 +25,5 @@ Pie-in-the-sky stuff:
         2. jupyter notebook
         3. html/css/html
 
-## Installation (this is a proposal, not 100% set in stone)
-
-1. Clone from github
-``` bash
-  $ git clone https://github.com/rajangdavis/fgr.git
-```
-
-2. Go to project directory and build with docker
-``` bash
-  $ cd ./fgr && docker build -t fgr .
-```
-
-3. Run the CLI
-``` bash
-  $ docker run --rm -ti fgr -f data.csv
-```
-
-4. (OPTIONAL) Save the file as executable and add file to $PATH or alias in .bash_profile for standalone CLI
-``` bash
-#!/bin/bash
-docker run --rm -ti --volume "$PWD":/shared/ fgr "$@" -p 5801:3000
-```
-
-Considering that we are using Docker, it might be prudent to include build instructions for images.
-
-## Basic API and YML configuration
-
 [Proposal for API can be found here](./jupyter_proofs/fgr%20v0.0.1.ipynb).
 
-## Running a server
-
-``` bash
-  $ fgr run -p 3000 -f multiple_stacked_bar_charts.yml
-```
