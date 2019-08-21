@@ -27,5 +27,5 @@ the way.
         3. html/css/js
 4. Config export?
 
-[Proposal for API can be found here](./jupyter_proofs/fgr%20v0.0.1.ipynb).
+[Proposal for API can be found here](./jupyter_proofs/fgr_v0.0.1.ipynb).
 
