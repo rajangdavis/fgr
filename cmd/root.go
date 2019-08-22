@@ -6,6 +6,9 @@ import (
 	"os"
 )
 
+var filePath string
+
+
 var RootCmd = &cobra.Command{
 	Use:   "fgr",
 	Short: "fgr - build charts from configuration",
@@ -26,5 +29,5 @@ func Execute() {
 }
 
 func init() {
-	RootCmd.PersistentFlags().StringVarP(&file, "file", "f", "", "path to file")
+	RootCmd.PersistentFlags().StringVarP(&filePath, "file", "f", "", "path to file")
 }
