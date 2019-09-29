@@ -1,0 +1,5 @@
+csv_from_file: "../data_sources/clean_train.csv"
+y_axis: "SalePrice"
+x_axis: "Year Built"
+groups: "Overall Qual"
+agg: "sum"

@@ -6,10 +6,7 @@ import (
 	"os"
 )
 
-var filePath string
-
-
-var RootCmd = &cobra.Command{
+var fgr = &cobra.Command{
 	Use:   "fgr",
 	Short: "fgr - build charts from configuration",
 	Long: `fgr - a Command Line Interface application to build charts from configuration files
@@ -22,12 +19,12 @@ under certain conditions`,
 }
 
 func Execute() {
-	if err := RootCmd.Execute(); err != nil {
+	if err := fgr.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 }
 
 func init() {
-	RootCmd.PersistentFlags().StringVarP(&filePath, "file", "f", "", "path to file")
+	
 }
